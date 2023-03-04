@@ -1,5 +1,7 @@
 // TODO: Include packages needed for this application
-var inquirer = require('inquirer');
+const inquirer = require('inquirer');
+const fs = require('fs');
+const generateMarkdown = require("./utils/generateMarkdown");
 
 // TODO: Create an array of questions for user input
 const questions = ["What is the title of your project?",
@@ -13,7 +15,9 @@ const questions = ["What is the title of your project?",
 "What license will you use for your project?"];
 
 // TODO: Create a function to write README file
-function writeToFile(fileName, data) {}
+function writeToFile(fileName, data) {
+    fs.writeFileSync('Readme.md', fileName)
+}
 
 // TODO: Create a function to initialize app
 function init() {
@@ -67,14 +71,12 @@ function init() {
     }
   ])
   .then((data) => {
-    // Use user feedback for... whatever!!
+    const file = generateMarkdown(data);
+    writeToFile(file, data);
+    console.log('README has been created!')
   })
   .catch((error) => {
-    if (error.isTtyError) {
-      // Prompt couldn't be rendered in the current environment
-    } else {
-      // Something else went wrong
-    }
+    console.log("Something went wrong :(" + error)
   });
 }
 
