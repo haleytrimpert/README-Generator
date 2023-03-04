@@ -16,7 +16,7 @@ const questions = ["What is the title of your project?",
 
 // TODO: Create a function to write README file
 function writeToFile(fileName, data) {
-    fs.writeFileSync('Readme.md', fileName)
+    fs.writeFileSync('README.md', fileName)
 }
 
 // TODO: Create a function to initialize app
