@@ -1,20 +1,82 @@
 // TODO: Include packages needed for this application
+var inquirer = require('inquirer');
 
 // TODO: Create an array of questions for user input
-const questions = ["What is the title?",
- "What is the description?", 
+const questions = ["What is the title of your project?",
+ "What is the description of your project?", 
  "What are the installation instructions?",
-"What is the usage information?",
+"What is the usage information for your project?",
 "What are the contribution guidelines?",
 "What are the test instructions?",
 "What is your github username?",
-"What is your email?"];
+"What is your email address?",
+"What license will you use for your project?"];
 
 // TODO: Create a function to write README file
 function writeToFile(fileName, data) {}
 
 // TODO: Create a function to initialize app
-function init() {}
+function init() {
+    inquirer
+  .prompt([
+    {
+        type: 'input',
+        name: 'title',
+        message: questions[0]
+    },
+    {
+        type: 'input',
+        name: 'description',
+        message: questions[1]
+    },
+    {
+        type: 'input',
+        name: 'installation',
+        message: questions[2]
+    },
+    {
+        type: 'input',
+        name: 'usage',
+        message: questions[3]
+    },
+    {
+        type: 'input',
+        name: 'contribution',
+        message: questions[4]
+    },
+    {
+        type: 'input',
+        name: 'instructions',
+        message: questions[5]
+    },
+    {
+        type: 'input',
+        name: 'github',
+        message: questions[6]
+    },
+    {
+        type: 'input',
+        name: 'email',
+        message: questions[7]
+    },
+    {
+        type: 'list',
+        name: 'license',
+        message: questions[8],
+        choices: ["MIT", "Apache 2.0", "GPL 3.0", "BSD 3", "none"]
+    }
+  ])
+  .then((data) => {
+    // Use user feedback for... whatever!!
+  })
+  .catch((error) => {
+    if (error.isTtyError) {
+      // Prompt couldn't be rendered in the current environment
+    } else {
+      // Something else went wrong
+    }
+  });
+}
 
 // Function call to initialize app
 init();
