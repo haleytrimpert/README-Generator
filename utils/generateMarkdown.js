@@ -35,7 +35,7 @@ function generateMarkdown(data) {
   Contribution guidelines: ${data.contribution}
 
   # Tests
-  Test Instructions: ${data.tests}
+  Test Instructions: ${data.instructions}
 
   # Questions
   Any questions? Contact through <a href='https://github.com/${data.github}'>GitHub</a> or ${data.email}
